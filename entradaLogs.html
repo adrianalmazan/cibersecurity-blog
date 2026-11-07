@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprende qué son los logs y cómo ayudan a detectar problemas.">
+    <title>Analizando logs de seguridad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>CyberLab Notes</h1>
+        <p>Aprendiendo ciberseguridad paso a paso</p>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#entradas">Articulos</a>
+            <a href="index.html#sobre-el-blog">Sobre el blog</a>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <article>
+            <h2>Introducción a los logs de seguridad</h2>
+            <img src="img/logs.png" alt="logs de seguridad">
+
+            <p>
+                Los logs de seguridad son registros que almacenan eventos
+                producidos por un sistema, aplicación o dispositivo de red.
+                Estos logs permiten reconstruir actividades y estudiar incidentes.
+            </p>
+
+            <h3>¿Qué información contienen?</h3>
+            <p>
+                Aunque el formato puede variar según el servicio, un evento estándar en los sistemas Linux
+                suele contener los siguientes campos:
+            </p>
+            <ul>
+
+                <li>Fecha y hora exacta en la que ocurrió el evento.</li>
+                <li>Nombre del host donde se originó el registro:</li>
+                <li>Servicio y PID y su identificador.</li>
+                <li>Mensaje o descripción</li>
+            </ul>
+
+            <h3>2. Caso práctico: Detectando ataques de fuerza bruta</h3>
+            <p>
+                Imaginemos que un atacante está intentando acceder a nuestro servidor a través del protocolo SSH
+                probando contraseñas al azar. Nuestro sistema registrará todos esos intentos fallidos.
+            </p>
+            <p>
+                Para no tener que leer miles de líneas manualmente, podemos utilizar las herramientas de consola
+                que vimos en el laboratorio de comandos básicos en linux, combinando comandos como <code>cat</code> o
+                leyendo directamente
+                el fichero con <code>grep</code> para filtrar patrones específicos.
+            </p>
+
+            <img src="img/logs-fuerzabruta.jpg"
+                alt="Filtrado de logs en terminal Linux mostrando un ataque de fuerza bruta">
+
+            <h3>3. Extrayendo la información con grep</h3>
+            <p>
+                En el ejemplo de la imagen, hemos analizado un fichero de autenticación buscando la cadena
+                <code>"Failed password"</code>. Esto nos permite aislar el ruido y centrarnos únicamente en
+                las conexiones rechazadas.
+            </p>
+            <p>
+                Al observar el resultado, un analista de seguridad puede extraer conclusiones valiosas:
+            </p>
+            <ul>
+                <li><strong>Usuarios atacados:</strong> El atacante está probando credenciales por defecto como
+                    <code>admin</code> o <code>root</code>.
+                </li>
+                <li><strong>Origen del ataque:</strong> Los intentos provienen de la misma dirección IP (192.168.1.50).
+                </li>
+                <li><strong>Frecuencia:</strong> Los intentos ocurren en intervalos de apenas un par de segundos, lo que
+                    confirma que es un proceso automatizado (un script o bot) y no un error humano.</li>
+            </ul>
+            <p>
+                A partir de esta confirmación, la medida defensiva inmediata sería bloquear esa dirección IP
+                en el firewall del servidor.
+            </p>
+
+            <h3>Cómo empezar a analizarlos</h3>
+            <p>
+                Primero se identifica el origen del registro y el periodo
+                de tiempo que se quiere estudiar buscando patrones, comparando
+                y buscando una explicación.
+            </p>
+
+            <p>
+                Un único evento no demuestra necesariamente que exista
+                un ataque. Pero siempre hay que estar alerta y analizarlos
+                mientras se usan otras herramientas.
+            </p>
+        </article>
+
+        <a href="index.html">Volver al inicio</a>
+    </main>
+
+    <footer>
+        <p>CyberLab Notes - Blog de aprendizaje sobre ciberseguridad</p>
+    </footer>
+
+
+</html>

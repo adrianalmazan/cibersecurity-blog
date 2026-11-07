@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberLab Notes | Inicio </title>
+    <meta name="description" content="CyberLab Notes: apuntes y prácticas de ciberseguridad. ">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>CyberLab Notes</h1>
+        <p>Aprendiendo ciberseguridad paso a paso</p>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#entradas">Articulos</a>
+            <a href="index.html#sobre-el-blog">Sobre el blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portada">
+            <img src="img/portada.jpg" alt="Portada del blog">
+
+            <h2>Explora el mundo de la ciberseguridad</h2>
+            <p>
+                Un espacio donde comparto mis apuntes y prácticas de Linux, redes y otras prácticas
+                educativas relacionadas con la ciberseguridad.
+            </p>
+        </section>
+
+        <section id="entradas">
+            <h2>Artículos recientes</h2>
+
+            <article class="tarjeta">
+                <img src="img/linux.jpg" alt="terminal de Linux">
+                <h3>Comandos básicos de Linux</h3>
+                <p>
+                    Comandos básicos, archivos y permisos en Linux.
+                </p>
+                <a href="entradalinux.html">Leer artículo</a>
+            </article>
+
+
+            <article class="tarjeta">
+                <img src="img/logs.png" alt="logs de seguridad">
+                <h3>Como analizar logs de seguridad</h3>
+                <p>
+                    Que información contienen los registros y cómo interpretarlos.
+                </p>
+                <a href="entradaLogs.html">Leer artículo</a>
+            </article>
+
+            <article class="tarjeta">
+                <img src="img/formulario.jpg" alt="Representación de un formulario web y la seguridad de los datos">
+                <h3>Formularios web: GET, POST y protección de contraseñas</h3>
+                <p>
+                    Aprende cómo se envían los datos desde un formulario y qué medidas ayudan a protegerlos.
+                </p>
+                <a href="entradaFormularios.html">Leer artículo</a>
+            </article>
+        </section>
+
+        <section id="sobre-el-blog">
+            <h2>Sobre el blog</h2>
+            <p>
+                Este blog es un espacio personal donde comparto mis apuntes y prácticas de ciberseguridad.
+                Mi objetivo es aprender y compartir conocimientos sobre Linux, redes y seguridad informática.
+            </p>
+        </section>
+
+        <section id="cuestionario" class="cuestionario">
+            <h2>Pon a prueba tus conocimientos</h2>
+
+            <p>
+                Comprueba lo que has aprendido sobre Linux,
+                redes y ciberseguridad.
+            </p>
+
+            <form id="formulario-test">
+
+                <fieldset>
+                    <legend>1. ¿Qué hace el comando chmod en Linux?</legend>
+
+                    <label>
+                        <input type="radio" name="pregunta1" value="a" required>
+                        Cambia el nombre de un archivo.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta1" value="b">
+                        Modifica los permisos de un archivo o directorio.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta1" value="c">
+                        Muestra los procesos en ejecución.
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>2. ¿Para qué se utiliza principalmente DNS?</legend>
+
+                    <label>
+                        <input type="radio" name="pregunta2" value="a" required>
+                        Para cifrar todos los archivos de un equipo.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta2" value="b">
+                        Para traducir nombres de dominio a información como direcciones IP.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta2" value="c">
+                        Para asignar permisos a los usuarios de Linux.
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>3. ¿Qué puede indicar un gran número de inicios de sesión fallidos?</legend>
+
+                    <label>
+                        <input type="radio" name="pregunta3" value="a" required>
+                        Que el sistema ha actualizado todos sus programas.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta3" value="b">
+                        Que se han eliminado los registros de seguridad.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta3" value="c">
+                        Un posible intento de acceso no autorizado que debe investigarse.
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>4. ¿Qué aporta HTTPS frente a HTTP?</legend>
+
+                    <label>
+                        <input type="radio" name="pregunta4" value="a" required>
+                        Cifrado de la comunicación mediante TLS.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta4" value="b">
+                        Protección absoluta frente a cualquier ataque.
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pregunta4" value="c">
+                        Anonimato completo para el usuario.
+                    </label>
+                </fieldset>
+
+                <button type="submit">Corregir respuestas</button>
+                <button type="reset">Reiniciar cuestionario</button>
+
+                <p id="resultado" aria-live="polite"></p>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>CyberLab Notes - Blog de aprendizaje sobre ciberseguridad</p>
+    </footer>
+
+</body>
+
+</html>

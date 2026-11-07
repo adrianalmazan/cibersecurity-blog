@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introducción a los comandos básicos de Linux.">
+    <title>Mi primer laboratorio de Linux</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>CyberLab Notes</h1>
+        <p>Aprendiendo ciberseguridad paso a paso</p>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#entradas">Articulos</a>
+            <a href="index.html#sobre-el-blog">Sobre el blog</a>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <article>
+            <h2>Comandos y conceptos básicos de GNU/Linux</h2>
+            <img src="img/linux.jpg" alt="Terminal de Linux">
+
+            <p>
+                Los sistemas GNU/Linux son un conjunto de sistemas operativos de tipo UNIX,
+                multiproceso y multiusuario pudiendo haber varios procesos ejecutándose
+                por diferentes usuarios
+                En el ámbito de la seguridad en los sistemas de información, dominar Linux es
+                fundamental porque permite interactuar directamente con los recursos mediante
+                intérpretes de comandos como Bash para controlar los procesos del sistema.
+                Una distribución de Linux muy utilizada en ciberseguridad es Kali Linux, que
+                incluye herramientas de análisis de vulnerabilidades, pruebas de penetración y auditoría de seguridad.
+            </p>
+
+            <h3>Trabajo con ficheros y directorios</h3>
+            <p>
+                En GNU/Linux todo se maneja como si fuera un fichero, incluidos los directorios y los dispositivos.
+            </p>
+            <ul>
+                <li><code>pwd</code>: Indica el directorio actual de trabajo.</li>
+                <li><code>ls</code>: Muestra el contenido de un directorio. Se puede usar <code>-l</code> para mostrar
+                    información detallada (permisos, propietario, tamaño) y <code>-a</code> para incluir archivos
+                    ocultos.</li>
+                <li><code>cd</code>: Se utiliza para cambiar el directorio actual.</li>
+                <li><code>mkdir</code>: Crea un directorio nuevo.</li>
+                <li><code>touch</code>: Permite la creación de un archivo vacío.</li>
+                <li><code>rm</code>: Sirve para borrar un fichero; utilizado con la opción <code>-r</code> borra
+                    directorios y sus contenidos de manera recursiva.</li>
+                <li><code>cat</code>: Muestra en pantalla el contenido de un fichero de texto.</li>
+                <li><code>echo</code>: Muestra un mensaje en la terminal.</li>
+            </ul>
+
+            <img src="img/linux-comandosBasicos.jpg" alt="Consola mostrando comandos básicos de Linux">
+
+
+            <h3>Búsqueda, filtrado y tuberías</h3>
+            <p>
+                Para el análisis de registros e investigación, es esencial saber localizar y redirigir la información:
+            </p>
+            <ul>
+                <li><code>man</code>: Permite acceder a las páginas de manual de referencia de los diferentes comandos.
+                </li>
+                <li><code>find</code>: Encuentra un archivo en una jerarquía de directorios empleando diferentes
+                    criterios.</li>
+                <li><code>grep</code>: Permite buscar una cadena de texto introducida como un patrón de búsqueda en un
+                    conjunto de ficheros.</li>
+            </ul>
+            <p>
+                Además, el uso de tuberías (<code>|</code>) permite conectar diferentes comandos entre sí, utilizando la
+                salida de un proceso como entrada para otro. Las redirecciones (<code>&gt;</code>,
+                <code>&gt;&gt;</code>, <code>&lt;</code>) envían los resultados directamente a ficheros de texto para
+                automatizar tareas.
+            </p>
+
+            <img src="img/linux-filtrado.jpg" alt="Consola mostrando permisos de archivos">
+
+            <h3>Administración y permisos</h3>
+            <p>
+                El sistema garantiza que cada usuario solo acceda a los recursos autorizados mediante tres tipos de
+                permisos: lectura (r), escritura (w) y ejecución (x).
+            </p>
+            <ul>
+                <li><code>chmod</code>: Modifica los permisos para los propietarios actuales del sistema.</li>
+                <li><code>chown</code>: Cambia el dueño o propietario de un fichero.</li>
+            </ul>
+
+            <p>
+                Para practicar de forma segura y no afectar tu máquina principal, puedes probar estos comandos montando
+                una distribución en una máquina virtual o utilizando terminales online desde el navegador.
+            </p>
+            <img src="img/linux-permisos.jpg" alt="Consola mostrando permisos de archivos">
+        </article>
+
+        <a href="index.html">Volver al inicio</a>
+    </main>
+
+    <footer>
+        <p>CyberLab Notes - Blog de aprendizaje sobre ciberseguridad</p>
+    </footer>
+
+
+</html>

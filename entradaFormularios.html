@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introducción a los formularios web y su seguridad.">
+    <title>Formularios web: GET, POST y protección de contraseñas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>CyberLab Notes</h1>
+        <p>Aprendiendo informática y ciberseguridad</p>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#entradas">Entradas</a></li>
+                <li><a href="index.html#sobre-el-blog">Sobre el blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="entrada">
+
+            <header>
+                <h2>Formularios web: GET, POST y protección de contraseñas</h2>
+                <p>Aprende cómo se envían los datos desde un formulario y qué medidas ayudan a protegerlos.</p>
+            </header>
+
+            <img src="img/formulario.jpg" alt="Representación de un formulario web y la seguridad de los datos">
+
+            <section>
+                <h3>1. ¿Qué es un formulario web?</h3>
+
+                <p>
+                    Los formularios web permiten recoger información introducida por
+                    los usuarios, como un nombre, una dirección de correo electrónico
+                    o una contraseña. Se utilizan, por ejemplo, en los formularios de
+                    inicio de sesión, los registros de usuarios y las búsquedas.
+                </p>
+
+                <p>
+                    En HTML, la etiqueta <code>&lt;form&gt;</code> define el formulario.
+                    Dentro de ella podemos utilizar elementos como
+                    <code>&lt;input&gt;</code> para introducir datos y
+                    <code>&lt;button&gt;</code> para enviar la información.
+                </p>
+
+                <p>Algunos atributos importantes son:</p>
+
+                <ul>
+                    <li><code>type</code>: indica el tipo de dato que se introduce, como texto o contraseña.</li>
+                    <li><code>name</code>: identifica el dato cuando se envía el formulario.</li>
+                    <li><code>action</code>: indica la dirección a la que se envían los datos.</li>
+                    <li><code>method</code>: establece el método HTTP utilizado para enviar la información.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>2. Diferencias entre GET y POST</h3>
+
+                <p>
+                    GET y POST son dos métodos HTTP utilizados para realizar
+                    peticiones a un servidor. La principal diferencia está en cómo
+                    se transmiten los parámetros y en el uso que se suele dar a cada uno.
+                </p>
+
+                <h4>Método GET</h4>
+
+                <p>
+                    GET se utiliza habitualmente para consultar información. Los
+                    parámetros suelen aparecer en la URL después del símbolo
+                    <code>?</code> y se separan mediante <code>&amp;</code>.
+                </p>
+
+                <p>Por ejemplo:</p>
+
+                https://ejemplo.com/buscar?tema=linux&amp;pagina=1
+
+                <p>
+                    Estos parámetros pueden quedar guardados en el historial del
+                    navegador, los registros del servidor o enlaces compartidos.
+                    Por eso no se deben incluir contraseñas en la URL.
+                </p>
+
+                <h4>Método POST</h4>
+
+                <p>
+                    POST se utiliza habitualmente para enviar datos que el servidor
+                    debe procesar, por ejemplo, al registrar una cuenta o enviar un
+                    formulario. Los datos se incluyen en el cuerpo de la petición,
+                    en lugar de aparecer normalmente en la URL.
+                </p>
+
+                <p>
+                    Sin embargo, <strong>POST no cifra los datos por sí mismo</strong>.
+                    Si se utiliza HTTP sin cifrar, la información puede ser
+                    interceptada durante la transmisión.
+                </p>
+            </section>
+
+            <section>
+                <h3>3. Prueba la diferencia entre GET y POST</h3>
+
+                <p>
+                    Utiliza este ejemplo para observar una representación de cómo
+                    pueden enviarse los datos. No se realiza ninguna petición real
+                    ni se envía información a un servidor.
+                </p>
+
+                <form id="formulario-demo">
+                    <div>
+                        <label for="usuario-demo">Nombre de usuario:</label>
+                        <input type="text" id="usuario-demo" name="usuario" placeholder="Por ejemplo, usuario123"
+                            required>
+                    </div>
+
+                    <fieldset>
+                        <legend>Selecciona el método HTTP</legend>
+
+                        <label>
+                            <input type="radio" name="metodo" value="GET" checked>
+                            GET
+                        </label>
+
+                        <label>
+                            <input type="radio" name="metodo" value="POST">
+                            POST
+                        </label>
+                    </fieldset>
+
+                    <button type="submit">Mostrar ejemplo</button>
+                </form>
+
+                <div id="resultado-demo" aria-live="polite">
+                    <p>El resultado aparecerá aquí.</p>
+                </div>
+
+                <noscript>
+                    <p>
+                        Para utilizar esta demostración, debes activar JavaScript
+                        en tu navegador.
+                    </p>
+                </noscript>
+            </section>
+
+            <section>
+                <h3>4. ¿POST protege las contraseñas?</h3>
+
+                <p>
+                    No por sí solo. Utilizar POST evita que los parámetros se
+                    muestren normalmente en la URL, pero no impide que alguien
+                    pueda leerlos si la comunicación viaja sin cifrar.
+                </p>
+
+                <p>
+                    Para proteger los datos durante su transmisión se utiliza
+                    <strong>HTTPS</strong>, que incorpora TLS para cifrar la
+                    comunicación entre el navegador y el servidor.
+                </p>
+
+                <p>
+                    También es importante recordar que HTTPS no protege frente
+                    a todos los riesgos. Un servidor comprometido, una página
+                    fraudulenta o un sistema que almacene mal las contraseñas
+                    pueden seguir exponiendo información.
+                </p>
+
+                <p>Algunas buenas prácticas son:</p>
+
+                <ul>
+                    <li>Utilizar HTTPS en las páginas que manejan información sensible.</li>
+                    <li>No incluir contraseñas en las URL.</li>
+                    <li>No almacenar contraseñas en texto plano.</li>
+                    <li>Guardar las contraseñas mediante funciones de hash específicas para contraseñas, con sal y
+                        parámetros adecuados.</li>
+                    <li>Validar los datos tanto en el navegador como en el servidor.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>5. Comparativa de seguridad</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Método y protocolo</th>
+                            <th>Características</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>GET con HTTP</td>
+                            <td>Los parámetros pueden aparecer en la URL y la comunicación no está cifrada.</td>
+                        </tr>
+
+                        <tr>
+                            <td>POST con HTTP</td>
+                            <td>Los datos suelen ir en el cuerpo de la petición, pero la comunicación no está cifrada.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>GET con HTTPS</td>
+                            <td>La comunicación está cifrada durante el transporte, aunque los parámetros pueden
+                                permanecer en el historial o en registros.</td>
+                        </tr>
+
+                        <tr>
+                            <td>POST con HTTPS</td>
+                            <td>El cuerpo de la petición está protegido durante el transporte, pero siguen siendo
+                                necesarias otras medidas de seguridad.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    En conclusión, GET y POST tienen usos distintos, pero ninguno
+                    sustituye al cifrado. La protección de la información depende
+                    también de cómo se procesa y almacena en el servidor.
+                </p>
+            </section>
+
+            <p><a href="index.html">← Volver al inicio</a></p>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>CyberLab Notes - Blog de aprendizaje sobre ciberseguridad</p>
+    </footer>
+
+</body>
+
+</html>
